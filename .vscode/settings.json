@@ -1,0 +1,8 @@
+{
+    "appService.deploySubpath": ".",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/bb5f50dc-f34a-48f2-96dc-01d8c2625fd1/resourceGroups/Azure-verifyForm_react/providers/Microsoft.Web/sites/verifyform"
+}
