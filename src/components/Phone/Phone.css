@@ -1,0 +1,61 @@
+.form__phone {
+  height: unset;
+}
+
+.container__inputs {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  position: absolute;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  font-size: 2rem;
+  margin: 20px 0px;
+  display: none;
+}
+
+.wrapper input {
+  width: 100%;
+  height: 4rem;
+  text-align: center;
+  font-size: 2rem;
+  border: none;
+}
+
+.wrapper input:placeholder-shown {
+  border: none;
+  border-bottom: 2px solid lightgrey;
+}
+
+.wrapper.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.err--msg {
+  display: none;
+  text-align: center;
+  padding-top: 30px;
+  color: red;
+  font-weight: 500;
+}
+
+.err--msg.invalid {
+  display: initial;
+}
+
+div.wrapper.invalid > input {
+  border: red solid 3px;
+}
+/*# sourceMappingURL=Phone.css.map */

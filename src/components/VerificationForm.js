@@ -1,70 +1,100 @@
 import React, { useState, useEffect } from 'react'
-import decodeHash from '../helperFunctions/hash'
+import decodeHash from '../requests/hash'
 import updateVerifiedFields from '../requests/updateVerifiedFields'
 
 /* ------------- Components ------------- */
-import PhoneVerify from './phone/PhoneVerify'
-import Loading from './Loading'
-import Success from './Success'
-import Fail from './Fail'
-import Scanner from './Scanner'
+import Phone from './Phone/Phone'
+import Scanner from './Scanner/Scanner'
+import { useUpdateLog } from '../LogContext'
 
-export default function VerificationForm() {
+
+class NestLogs extends Map {
+    setState(...args) {
+        this.state = Object.assign({},...args)
+        return this.state
+    }
+
+    set(p,v) {
+        if (v !== this.get(p)?.complete) {
+            this.state && this.state.updateLog(p,v)
+        }
+        return super.set(p,{complete:v})
+    }
+
+    get(p) { return super.get(p) }
+}
+const logState = new NestLogs()
+
+
+export default function VerificationForm(props) {
     const [ userInfo, setUserInfo ] = useState(null)
-    const [ step, setStep ] = useState(1)
-    const [ phone, setPhone ] = useState(null)
-    const [ dL, setDL ] = useState(null)
-    const [ face, setFace ] = useState(null)
-    const [ loading, setLoading ] = useState(null)
-    const [ success, setSuccess ] = useState(null)
+    //const [ phone, setPhone ] = useState(null)
+    const [ nestedLogs, setNestedLogs ] = useState(logState)
+    const [ success, setSuccess ] = useState(true)
+    const { updateLog } = useUpdateLog()
 
-    useEffect(async () => {
+
+
+//  This is used as middle man to update logs
+//  from a non-react component
+    useEffect(() => {
+        nestedLogs.setState({
+            updateLog: (p,v) => updateLog(p,v)
+        })
+    },[])
+
+
+
+
+    useEffect(() => {
+        updateLog("Verifying email", false)
         const search = window.location?.search
         if (search) {
             const hash = search.split("?p=")[1]
-            console.log("hash", hash)
             //  decode hash to get id and emailaddress
-            const { id, emailaddress } = await decodeHash({"hash": hash})
-
-            //  update verified_fields in profile item
-            updateVerifiedFields({"emailaddress": emailaddress}, id, emailaddress)
-            setUserInfo({
-                "id": id,
-                "emailaddress": emailaddress
+            decodeHash({"hash": hash}).then(async data => {
+                const { id, emailaddress } = data
+                updateLog("Getting user info", true)
+                const updateEmail = await updateVerifiedFields({"emailaddress": emailaddress}, id, emailaddress)
+                updateEmail && updateLog("Verifying email", true)
+                process.nextTick(() => {
+                    setUserInfo({
+                        id: id,
+                        emailaddress: emailaddress
+                    })
+                })
             })
-
+        } else {
+            setUserInfo({
+                id: "eadf8fd7-0ab1-4fc6-8880-e563e3efa0d8",
+                emailaddress: "joshrlear@gmail.com"
+            })
+            updateLog("Verifying email", true)
         }
     }, [])
 
-    useEffect(() => {
-        if (face) setSuccess(true)
-    },[face])
-
-    if (loading === true) return <Loading step={ step }/>
-    else if (success === false) return <Fail/>
-    else if (success === true) return <Success phone={ phone } dL={ dL } face={ face }/>
-    else if (step > 1) {
+    if (props.step > 1) {
         return (
-
             <Scanner 
-                step={ step }
+                step={ props.step }
                 userInfo={ userInfo }
-                handleStep={ e => setStep(e) } 
-                handleDL={ e => setDL(e) }
-                handleFace={ e => setFace(e) }
+                setStep={ e => props.setStep(e) } 
+                logs={ nestedLogs }
+                setLoading={ props.setLoading }
             />
         )   
     }
     else {
         return (
-            <PhoneVerify 
-                handleStep={ e => setStep(e) } 
-                handlePhone={ e => setPhone(e) }
-                setLoading={ e => setLoading(e) }
+            <Phone
+                setStep={ e => props.setStep(e) }
+                setPhone={ e => props.setPhone(e) }
+                setLoading={ props.setLoading }
                 setSuccess={ e => setSuccess(e) }
                 userInfo={ userInfo }
-                step={ step }
-                phone={ phone }
+                step={ props.step }
+                phone={ props.phone }
+                logs={ nestedLogs }
             />
         )
     }

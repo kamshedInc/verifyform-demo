@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EAEX,KAAK,EAAE,IAAI;EAGX,MAAM,EAAE,GAAG;CAId",
+    "sources": [
+        "LogHistory.scss"
+    ],
+    "names": [],
+    "file": "LogHistory.css"
+}

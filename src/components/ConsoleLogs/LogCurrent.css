@@ -1,0 +1,56 @@
+.section__logs {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.container__log {
+  -ms-grid-columns: 1fr 6fr 1fr;
+      grid-template-columns: 1fr 6fr 1fr;
+}
+
+.log-msg {
+  display: inline-block;
+}
+
+.log-msg.waiting::after {
+  content: '';
+  -webkit-animation: Waiting 1.5s steps(5, end) infinite;
+          animation: Waiting 1.5s steps(5, end) infinite;
+}
+
+@-webkit-keyframes Waiting {
+  0% {
+    content: '';
+  }
+  25% {
+    content: ' .';
+  }
+  50% {
+    content: ' . .';
+  }
+  75% {
+    content: ' . . .';
+  }
+  100% {
+    content: ' . . .';
+  }
+}
+
+@keyframes Waiting {
+  0% {
+    content: '';
+  }
+  25% {
+    content: ' .';
+  }
+  50% {
+    content: ' . .';
+  }
+  75% {
+    content: ' . . .';
+  }
+  100% {
+    content: ' . . .';
+  }
+}
+/*# sourceMappingURL=LogCurrent.css.map */

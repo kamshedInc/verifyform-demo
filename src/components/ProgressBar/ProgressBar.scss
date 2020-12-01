@@ -1,0 +1,123 @@
+//  global styles
+//  =========================================
+
+* {
+    margin: auto;
+}
+
+.container {
+    text-align: center;
+    margin: 0px 30px;
+}
+
+.circle {
+    margin: auto;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.section {
+    //padding: 15px 0 5px 0;
+    padding: 5px 0px;
+}
+
+
+
+
+//  specific styles
+//  =========================================
+.section__top {
+    justify-self: flex-start;
+    margin: 0px;
+}
+
+.section__progress {
+    position: relative;
+    z-index: 1;
+    height: 40px;
+    padding: 0px;
+}
+
+.container__progress {
+    height: inherit;
+    min-width: inherit;
+    max-width: 80vw;
+    margin: auto;
+    display: flex;
+}
+
+.section__header {
+    position: relative;
+    z-index: 1;
+}
+
+.section__hint {
+    position: relative;
+    height: 70px;
+    top: 0px;
+    overflow: hidden;
+    transition: all 250ms ease-out;
+}
+
+.container__hint{
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    left: 0%;
+    line-height: 1.5em;
+    transition: all 250ms ease-out;
+}
+
+.container__button--expand {
+    position: absolute;
+    margin: auto;
+    height: 20px;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button--bg {
+    height: 20px;
+    width: 100%;
+    top: 0;
+    
+    &.collapsed {
+        position: absolute;
+        height: 20px;
+    }
+}
+
+.button--expand {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 12px;
+    width: 50px;
+}
+
+
+
+//  combo styles
+//  =========================================
+
+.dark-bg {
+    background-color: dimgray;
+}
+
+.light-bg {
+    background-color: lightgrey;
+}
+
+.container__progress > .active {
+    height: 20px;
+    width: 20px;
+    background-color: white;
+}
+
+.collapsed {
+    height: 0px;
+}

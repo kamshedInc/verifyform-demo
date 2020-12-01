@@ -1,0 +1,28 @@
+.container__log {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  height: 1.5rem;
+  color: white;
+}
+
+.contianer__log-icon {
+  height: 15px;
+  width: 15px;
+  position: relative;
+}
+
+.log-icon {
+  font-size: 0.75em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.log-msg {
+  margin-left: unset;
+  font-size: 0.85em;
+}
+/*# sourceMappingURL=LogBlock.css.map */

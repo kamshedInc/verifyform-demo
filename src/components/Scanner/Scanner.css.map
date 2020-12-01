@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACZ,MAAM,EAAE,GAAG;EACX,cAAc,EAAE,IAAI;CACvB;;AAED,AAAA,WAAW,CAAC;EACR,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,IAAI;CAOf;;AATD,AAGI,WAHO,CAGP,KAAK,CAAC;EACF,GAAG,EAAE,GAAG;EACR,SAAS,EAAE,gBAAgB;EAC3B,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "Scanner.scss"
+    ],
+    "names": [],
+    "file": "Scanner.css"
+}

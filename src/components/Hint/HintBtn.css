@@ -1,0 +1,19 @@
+.wrapper__btn--hint {
+  pointer-events: none;
+}
+
+.container__btn--hint {
+  border-color: black;
+  height: 1.5rem;
+  width: 1.5rem;
+  top: 20%;
+}
+
+button.btn--hint {
+  pointer-events: all;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 700;
+}
+/*# sourceMappingURL=HintBtn.css.map */

@@ -1,0 +1,18 @@
+.section__video {
+  margin: 0px;
+  padding-bottom: 34px;
+}
+
+.video-wrap {
+  position: relative;
+  height: 100%;
+}
+
+.video-wrap video {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 100%;
+  height: auto;
+}
+/*# sourceMappingURL=Scanner.css.map */
