@@ -3,11 +3,19 @@ import getVerified from '../../requests/getVerified'
 import './Results.css'
 
 export default function Results(props) {
+    const { userInfo } = props
+    let id,emailaddress;
+    if (userInfo) {
+        id = userInfo.id
+        emailaddress = userInfo.emailaddress
+    }
     const [ results, setResults ] = useState(null)
 
     useEffect(() => {
         (async () => {
-            setResults(await getVerified("eadf8fd7-0ab1-4fc6-8880-e563e3efa0d8","joshrlear@gmail.com"))
+            const verifiedInfo = await getVerified(id,emailaddress) || "No results could be loaded."
+            console.log(verifiedInfo)
+            setResults(verifiedInfo)
         })()
     }, [])
 
@@ -15,14 +23,25 @@ export default function Results(props) {
         if (results) {
             const fields = []
             let i = -1
-            for (let r in results) {
+            console.log(results)
+            if (results !== "No results could be loaded.") {
+                for (let r in results) {
+                    fields.push(
+                    <h3 
+                        key={++i} 
+                        className="results--info">
+                        {`${r}: ${results[r]}`}
+                    </h3>
+                    )
+                }
+            } else {
                 fields.push(
-                <h3 
-                    key={++i} 
-                    className="results--info">
-                    {`${r}: ${results[r]}`}
-                </h3>
-                )
+                    <h3 
+                        key={++i} 
+                        className="results--info">
+                        { results }
+                    </h3>
+                    )
             }
             return (
                 <>

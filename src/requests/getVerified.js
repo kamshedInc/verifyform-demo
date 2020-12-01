@@ -10,7 +10,8 @@ export default async function getVerified(id,emailaddress) {
     const container = client.database(dbId).container(containerId)
     const result = await container.item(id,emailaddress).read().catch(err => console.error(err))
     const data = result?.resource
-    if (result.statusCode === 200) {
+    console.log(result?.statusCode)
+    if (result?.statusCode === 200) {
         return data.verified
-    }
+    } else return null
 } 

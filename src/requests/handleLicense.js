@@ -69,7 +69,7 @@ export function readLicense(blob,res) {
     //  getRead
     //  =======================================================
     readDL.then(getRead => {
-        new Promise(res => checkResult(getRead,keyName,keyValue,controller2,res))
+        new Promise(res => checkResult(getRead,keyname,key,controller2,res))
         .then(r => {
             let result;
             new Promise((res,rej) => getInfo(r,res,rej))
