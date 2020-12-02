@@ -18,4 +18,4 @@ async function updateVerifiedFields(update, id, emailaddress, res) {
     })
 }
 
-module.exports = updateVerifiedFields;
+module.exports = {updateVerifiedFields};
