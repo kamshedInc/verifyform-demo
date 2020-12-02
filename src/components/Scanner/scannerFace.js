@@ -1,6 +1,6 @@
 const getFaceId = require('../../requests/getFaceId')
 const compareFaceToProfile = require('../../requests/compareFace')
-const updateVerifiedFields = require('../../requests/updateVerifiedFields')
+const { updateVerifiedFields } = require('../../requests/updateVerifiedFields')
 
 
 export function scannerFace(props) {

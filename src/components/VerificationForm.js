@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import decodeHash from '../requests/hash'
-import updateVerifiedFields from '../requests/updateVerifiedFields'
+import { updateVerifiedFields } from '../requests/updateVerifiedFields'
 
 /* ------------- Components ------------- */
 import Phone from './Phone/Phone'

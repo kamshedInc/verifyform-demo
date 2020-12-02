@@ -1,5 +1,5 @@
 const { detectLicense, readLicense } = require('../../requests/handleLicense')
-const updateVerifiedFields = require('../../requests/updateVerifiedFields')
+const { updateVerifiedFields } = require('../../requests/updateVerifiedFields')
 const { getBlob, upscale, compareInfoToDB } = require('./scannerUtil')
 
 

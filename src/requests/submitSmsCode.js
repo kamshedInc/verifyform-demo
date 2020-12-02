@@ -1,5 +1,5 @@
 import { verifySmsCode } from '../config'
-import updateVerifiedFields from './updateVerifiedFields';
+import { updateVerifiedFields } from './updateVerifiedFields';
 
 export default function submitSmsCode(props) {
     const { logs } = props
