@@ -9,7 +9,7 @@ import Hint from './components/Hint/Hint'
 import Loading from './Loading/Loading'
 import Results from './components/Results/Results'
 import HintBtn from '../src/components/Hint/HintBtn'
-require('dotenv').config()
+//require('dotenv').config()
 
 function App() {
   const [ step, setStep ] = useState(1)

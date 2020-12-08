@@ -1,3 +1,6 @@
+const dotenv = require('dotenv')
+dotenv.config()
+
 module.exports = {
     "dLVerifyRequest": process.env.REACT_APP_DL_VERIFY_SUBMISSION,
 
