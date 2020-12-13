@@ -1,30 +1,20 @@
 .section__hint.info, .container__hint.info, .container__btn.next{
-    //position: unset;
     line-height: unset;
-    //height: unset;
     top: unset;
     overflow: unset;
     transition: unset;
     margin: 0px;
 }
 
-// .section__hint.info {
-//     display: grid;
-//     grid-template-columns: 1fr 4fr 1fr;
-//     height: 100vh;
-//     margin: 0px;
-// }
 
 .container__hint.info {
-    // max-width: 420px;
-    // position: relative;
-    //grid-row: 1/4;
-    //grid-column: 2/3;
 
     #info {
         position: absolute;
+        width: fit-content;
         top: 50%;
-        transform: translateY(-50%);
+        left: 50%;
+        transform: translate(-50%,-50%);
         font-size: 2.85rem;
         margin-bottom: 3rem;
     }
