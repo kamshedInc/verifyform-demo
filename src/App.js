@@ -12,7 +12,7 @@ import HintBtn from '../src/components/Hint/HintBtn'
 //require('dotenv').config()
 
 function App() {
-  const [ step, setStep ] = useState(1)
+  const [ step, setStep ] = useState(2)
   const [ phone, setPhone ] = useState({
     phoneNumber: null, 
     verificationStatus: null, 

@@ -23,7 +23,7 @@ export default function Scanner(props) {
     useEffect(() => {
         if (video) {
             if (!video.width) {
-                new Promise(res => captureVideo(video,res))
+                new Promise(res => captureVideo(video,res,props.step))
                 .then(r => setStream(r))
             }
         }
