@@ -1,12 +1,11 @@
 export default function captureVideo(video,res,step) {
-    const environment = step === 2 
-        ? { facingMode: "environment" } 
-        : { facingMode: "user" }
+    const rear = step === 2 
+        ? true
+        : false
 
     navigator.mediaDevices.getUserMedia({ 
         audio: false, 
-        video: true, 
-        environment 
+        video: { facingMode: (rear? "environment" : "user") }
     })
     .then(stream => {
         video.srcObject = stream

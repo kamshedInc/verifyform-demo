@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import captureVideo from '../../helperFunctions/captureVideo'
 import scannerRouter from './scannerRouter'
 import './Scanner.css'

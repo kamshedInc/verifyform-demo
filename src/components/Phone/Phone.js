@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef/* , useState */ } from 'react'
 import './Phone.css'
-import { useUpdateLog } from '../../LogContext'
+//import { useUpdateLog } from '../../LogContext'
 import validatePhone from '../../helperFunctions/validatePhone'
 import postPhone from '../../requests/postPhone'
 import submitSmsCode from '../../requests/submitSmsCode'
 import Btn from '../Btn/Btn'
 
 export default function Phone(props) {
-    const [ code, setCode ] = useState(null)
-    const [ errMsg, setErrMsg ] = useState(false)
-    const { updateLog } = useUpdateLog()
+    //const [ setCode ] = useState(null)
+    //const [ setErrMsg ] = useState(false)
+    //const { updateLog } = useUpdateLog()
     const phoneRef = useRef()
     const codeRef = useRef()
     const phoneErrRef = useRef()
@@ -54,14 +54,14 @@ export default function Phone(props) {
             } else {
                 phoneRef.current.classList.add('invalid')
                 phoneErrRef.current.classList.add('invalid')
-                setErrMsg(true)
+                //setErrMsg(true)
             }
     //  sms code
         } else {
             if (props.phone.phoneNumber) {
                 const regex = /^[0-9]{6}$/g
                 if (regex.test(val)) {
-                    setCode(val)
+                    //setCode(val)
                     if (codeRef.current.classList.contains('invalid')) {
                         codeRef.current.classList.remove('invalid')
                         codeErrRef.current.classList.remove('invalid')
@@ -79,7 +79,7 @@ export default function Phone(props) {
                     codeRef.current.classList.add('invalid')
                     codeErrRef.current.classList.add('invalid')
                 }
-            } else setErrMsg(true)
+            } //else setErrMsg(true)
         }
     }
 

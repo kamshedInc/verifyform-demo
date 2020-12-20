@@ -28,9 +28,8 @@ const logState = new NestLogs()
 
 export default function VerificationForm(props) {
     const [ userInfo, setUserInfo ] = useState(null)
-    //const [ phone, setPhone ] = useState(null)
-    const [ nestedLogs, setNestedLogs ] = useState(logState)
-    const [ success, setSuccess ] = useState(true)
+    const [ nestedLogs ] = useState(logState)
+    const [ setSuccess ] = useState(true)
     const { updateLog } = useUpdateLog()
 
 

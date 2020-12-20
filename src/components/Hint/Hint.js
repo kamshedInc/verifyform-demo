@@ -56,6 +56,7 @@ function* hint_info(step) {
             'All done! Click next to see the final results'
         ]
             break;
+        default: info = []
     }
     for (let i of info) yield i
 }

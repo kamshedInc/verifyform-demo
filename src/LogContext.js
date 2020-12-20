@@ -30,10 +30,10 @@ export function useUpdateLog() {
 }
 
 export function LogProvider({ children }) {
-    const [ logs, setLogs ] = useState(logMap)
-    const [ intervals, setIntervals ] = useState(intervalMap)
+    const [ logs ] = useState(logMap)
+    const [ intervals ] = useState(intervalMap)
     const [ keys, setKeys ] = useState([])
-    const [ complete, setComplete ] = useState(0)
+    const [ complete ] = useState(0)
 
     useEffect(() => {
         if (logs.size > 0) {

@@ -4,7 +4,7 @@ const { updateVerifiedFields } = require('../../requests/updateVerifiedFields')
 
 
 export function scannerFace(props) {
-    const { id,emailaddress,logs,step,setStep,canvas,stream,setLoading } = props
+    const { id,emailaddress,logs,setStep,canvas,stream,setLoading } = props
     let waitForFace;
     
 //  Detect Face
